@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"/>
+    <title id='Description'>Sistema Web</title>
+	
+	<link rel="stylesheet" href="css/bancos.css"/>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+	  
+	<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="scripts/demos.js"></script>
+	
+</head>
+<body >
+	
+    <div id='content'>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#jqxMenu").jqxMenu({ width: '90%', height: '30px'});
+            
+                var centerItems = function () {
+                    var firstItem = $($("#jqxMenu ul:first").children()[0]);
+                    firstItem.css('margin-left', 0);
+                    var width = 0;
+                    var borderOffset = 2;
+                    $.each($("#jqxMenu ul:first").children(), function () {
+                        width += $(this).outerWidth(true) + borderOffset;
+                    });
+                    var menuWidth = $("#jqxMenu").outerWidth();
+                    firstItem.css('margin-left', (menuWidth / 2 ) - (width / 2));
+                }
+                centerItems();
+                $(window).resize(function () {
+                    centerItems();
+                });
+            });
+        </script>
+           <div id='jqxMenu'>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li>Finanzas
+                        <ul style='width: 250px;'>
+                            <li><a href="fin_bancos.html#f_bancos" target="mostrar_bancos">Bancos</a></li>
+                            <li><a href="fin_bancos.html#f_cuentas_bancarias" target="mostrar_bancos">Cuentas</a></li>
+                            <li><a href="#">Cajas</a></li>
+                            <li type='separator'></li>
+                            <li>Transacciones
+                                <ul style='width: 220px;'>
+                                    <li><a href="#">Operaciones Financieras</a></li>
+                                    <li><a href="#">Movimientos Bancarios</a></li>
+									<li><a href="#">Notas de Crédito</a></li>
+                                    <li><a href="#">Notas de Débito</a></li>
+                                    <li type='separator'></li>
+									<li><a href="#">Registro de Chequera</a></li>
+                                    <li><a href="#">Conciliación</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Registro de Chequeras</a></li>
+                        </ul>
+                    </li>
+                    <li>Compras y Bienes</li>                      
+                    
+                    <li>Recursos</li>                    
+                    
+                    <li>Control de Obras</li>                 
+                    
+                    <li>Configuración</li>              
+                    
+                </ul>
+				
+            </div>
+			<iframe src ="fin_bancos.html" 
+						name="mostrar_bancos" 
+						id  ="frame-bancos">
+			</iframe>
+    </div>
+	
+</body>
+
+</html>
